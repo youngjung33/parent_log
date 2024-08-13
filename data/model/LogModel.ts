@@ -62,7 +62,7 @@ export const LogModel: core.ListConfig<BaseListTypeInfo> = core.list(
 
             // 내용
             body: fields.json({
-                label: Label.BODY
+                label: Label.BODY,
             },
             ),
 
@@ -71,7 +71,7 @@ export const LogModel: core.ListConfig<BaseListTypeInfo> = core.list(
                 validation: {
                     isRequired: false,
                 },
-                label: Label.CONTENT
+                label: Label.CONTENT,
             },
             ),
 

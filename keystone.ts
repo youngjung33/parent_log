@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import { AdminModel } from "./data/model/AdminModel";
 import { LogModel } from "./data/model/LogModel";
+import { allLogApi } from './presenter/AllLogApi';
 
 /**
  * 환경변수 설정
@@ -84,7 +85,7 @@ export default withAuth(
             playground: process.env.PRODUCTION == 'true' ? true : false,
             apolloConfig: {
                 formatError: (err) => {
-                    if(err.message != 'Access denied'){
+                    if (err.message != 'Access denied') {
                         console.error(new Date(), 'Apollo Query Error: ', err);
                     }
                     return err;
@@ -125,6 +126,9 @@ export default withAuth(
             extendExpressApp: (app, commonContext) => {
                 app.use(bodyParser.json({ limit: "50mb" }));
                 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+                // Log 기록 Api
+                allLogApi(app, commonContext);
 
                 // 에러 핸들링
                 app.use((err: any, req: any, res: any, next: any) => {
