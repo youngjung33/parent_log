@@ -1,0 +1,14 @@
+node_modules
+keystone.db
+*.log
+public/profiles
+public/school
+public/files
+.keystone
+*.js
+*.js.map
+schema.graphql
+schema.prisma
+.env
+*.webp
+*.db
