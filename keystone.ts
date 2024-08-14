@@ -2,6 +2,7 @@ import * as crypto from 'crypto';
 import * as auth from '@keystone-6/auth';
 import * as core_session from '@keystone-6/core/session';
 import * as core from '@keystone-6/core';
+// @ts-ignore
 import * as type from '.keystone/types';
 import dotenv from 'dotenv';
 import bodyParser from "body-parser";
